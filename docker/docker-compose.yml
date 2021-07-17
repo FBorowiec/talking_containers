@@ -4,6 +4,10 @@ services:
     image: index.docker.io/framaxwlad/talking_container:latest
     container_name: hamlet_listener
     command: -t "server"
+    ports:
+      - "49152:49152"
+    networks:
+      - local_net
 
   hamlet_reciter:
     image: index.docker.io/framaxwlad/talking_container:latest
@@ -11,6 +15,8 @@ services:
     command: -t "client"
     depends_on:
       - hamlet_listener
+    networks:
+      - local_net
 
 networks:
   local_net:
