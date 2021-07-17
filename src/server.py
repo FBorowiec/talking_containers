@@ -1,5 +1,8 @@
+import logging
 import socket
 from config.config_handler import SettingsHandler
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s:%(message)s")
 
 
 class Server:
@@ -26,4 +29,4 @@ class Server:
         # Send some data back to the client
         clientConnected.send("received".encode())
 
-        print(data.decode())
+        logging.info(data.decode())

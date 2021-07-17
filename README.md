@@ -6,7 +6,7 @@ In this example one container is reciting Shakespeare's Hamlet to another assumi
 
 ## **How to run**
 
-Use `docker-compose up` to start the communication between the two containers.
+Use `docker-compose up` inside the `docker` folder to start the communication between the two containers.
 
 
 ## **How to run the code locally with *Bazel* already installed on host**
