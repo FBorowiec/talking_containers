@@ -4,15 +4,13 @@ load("@io_bazel_rules_docker//container:container.bzl", "container_image", "cont
 
 package(default_visibility = ["//visibility:public"])
 
-py_library(
-    name = "talking_containers_lib",
-    srcs = glob(["src/*.py"]),
-)
-
 py_binary(
     name = "run_container",
     srcs = ["run_container.py"],
-    deps = [":talking_containers_lib"],
+    deps = [
+        "//src:talking_containers_lib",
+        "//arg_parser",
+    ]
 )
 
 container_image(
@@ -25,7 +23,7 @@ py3_image(
     srcs = ["run_container.py"],
     base = "ubuntu_python3",
     main = "run_container.py",
-    deps = [":talking_containers_lib"],
+    deps = ["//src:talking_containers_lib"],
 )
 
 container_push(
