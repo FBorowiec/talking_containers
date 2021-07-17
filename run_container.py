@@ -4,7 +4,7 @@ from config.config_handler import SettingsHandler
 from src.client import HamletReciter
 from src.server import Server
 
-SPEED = SettingsHandler().handler["reader"]["speed"]
+SPEED = int(SettingsHandler().handler["reader"]["speed"])
 READ_SPEED = 60.0 / SPEED
 
 
