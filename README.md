@@ -2,7 +2,7 @@
 
 Example of using two docker containers communicating through sockets.
 
-In this example one container is reciting Shakespeare's Hamlet to another assuming an average reading speed of 200 words per minute.
+In this example one container is reciting Shakespeare's Hamlet to another assuming an average reading speed of 150 words per minute.
 
 ## **How to run**
 
@@ -23,3 +23,10 @@ docker run //:run_container -- -t "client"
 ### Bazel installation
 
 [Install Bazel](https://docs.bazel.build/versions/master/install.html)
+
+
+## **Dockerhub**
+
+The container image is available at:
+
+[hub.docker.com/repository/docker/framaxwlad/talking_container](https://hub.docker.com/repository/docker/framaxwlad/talking_container)
