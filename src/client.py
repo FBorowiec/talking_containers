@@ -1,11 +1,10 @@
-import json
 import socket
 from config.config_handler import SettingsHandler
 
 
 class HamletReciter:
     host_ip = SettingsHandler().handler["server"]["server_ip"]
-    server_port = SettingsHandler().handler["server"]["port"]
+    server_port = int(SettingsHandler().handler["server"]["port"])
 
     def __init__(self):
         # Initialize a TCP client socket using SOCK_STREAM
@@ -13,13 +12,11 @@ class HamletReciter:
 
     def recite(self, line):
         try:
-            data = json.dumps({"data": line})
             # Establish connection to TCP server and exchange data
             self.tcp_client.connect((self.host_ip, self.server_port))
-            self.tcp_client.sendall(data.encode())
+            self.tcp_client.sendall(line.encode())
 
             # Read data from the TCP server and close the connection
             received = self.tcp_client.recv(1024)
-            print("received: ", received)
         finally:
             self.tcp_client.close()

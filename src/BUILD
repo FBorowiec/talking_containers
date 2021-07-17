@@ -5,5 +5,5 @@ package(default_visibility = ["//visibility:public"])
 py_library(
     name = "talking_containers_lib",
     srcs = glob(["*.py"]),
-    deps = ["//config_hangler"],
+    deps = ["//config:config_handler"],
 )
