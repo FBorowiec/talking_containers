@@ -25,7 +25,10 @@ py3_image(
     base = "ubuntu_python3",
     main = "run_container.py",
     data = ["hamlet.txt"],
-    deps = ["//src:talking_containers_lib"],
+    deps = [
+        "//src:talking_containers_lib",
+        "//arg_parser",
+    ],
 )
 
 container_push(
@@ -33,6 +36,6 @@ container_push(
     format = "Docker",
     image = "talking_containers_image",
     registry = "index.docker.io",
-    repository = "nutshellhub/talking_container",
+    repository = "framaxwlad/talking_container",
     tag = "latest",
 )
