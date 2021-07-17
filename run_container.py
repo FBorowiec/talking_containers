@@ -1,6 +1,11 @@
+from time import sleep
 from arg_parser.arg_parser import parse_arguments
+from config.config_handler import SettingsHandler
 from src.client import HamletReciter
 from src.server import Server
+
+SPEED = SettingsHandler().handler["reader"]["speed"]
+READ_SPEED = 60.0 / SPEED
 
 
 def run_server():
@@ -17,10 +22,15 @@ def run_client():
     for line in hamlet_lines:
         hr.recite(line)
 
+        words = len(line.split())
+        sleep(READ_SPEED * words)
+
 
 if __name__ == "__main__":
     args = parse_arguments()
     if args.type == "client":
         run_client()
-    if args.type == "server":
+    elif args.type == "server":
         run_server()
+    else:
+        raise ValueError("Wrong argument provided!")
