@@ -19,7 +19,6 @@ class Server:
         return server_socket
 
     def listen(self):
-
         (clientConnected, clientAddress) = self.server_socket.accept()
 
         data = clientConnected.recv(1024)
@@ -27,4 +26,4 @@ class Server:
         # Send some data back to the client
         clientConnected.send("received".encode())
 
-        return data.decode()
+        print(data.decode())

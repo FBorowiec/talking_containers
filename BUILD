@@ -7,6 +7,7 @@ package(default_visibility = ["//visibility:public"])
 py_binary(
     name = "run_container",
     srcs = ["run_container.py"],
+    data = ["hamlet.txt"],
     deps = [
         "//src:talking_containers_lib",
         "//arg_parser",
@@ -23,6 +24,7 @@ py3_image(
     srcs = ["run_container.py"],
     base = "ubuntu_python3",
     main = "run_container.py",
+    data = ["hamlet.txt"],
     deps = ["//src:talking_containers_lib"],
 )
 
