@@ -1,0 +1,25 @@
+version: "3"
+services:
+  hamlet_listener:
+    image: index.docker.io/framaxwlad/talking_container:latest
+    container_name: hamlet_listener
+    command: -t "server"
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+
+  hamlet_reciter:
+    image: index.docker.io/framaxwlad/talking_container:latest
+    container_name: hamlet_reciter
+    command: -t "client"
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    depends_on:
+      - hamlet_listener
+
+networks:
+  local_net:
+    driver: bridge
