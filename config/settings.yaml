@@ -1,0 +1,6 @@
+server:
+  server_ip: "hamlet_listener"
+  port: 49152
+
+reader:
+  speed: 150

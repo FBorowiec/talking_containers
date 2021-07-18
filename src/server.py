@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s:%(message)s")
 class Server:
     # operating on IPv4 addressing scheme
     host_ip = SettingsHandler().handler["server"]["server_ip"]
-    server_port = int(SettingsHandler().handler["server"]["port"])
+    server_port = SettingsHandler().handler["server"]["port"]
 
     def __init__(self):
         self.server_socket = self.setup_server()

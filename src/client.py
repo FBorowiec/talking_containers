@@ -4,7 +4,7 @@ from config.config_handler import SettingsHandler
 
 class HamletReciter:
     host_ip = SettingsHandler().handler["server"]["server_ip"]
-    server_port = int(SettingsHandler().handler["server"]["port"])
+    server_port = SettingsHandler().handler["server"]["port"]
 
     def recite(self, line):
         tcp_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
