@@ -25,10 +25,6 @@ jobs:
           mv bazelisk-linux-amd64 "${GITHUB_WORKSPACE}/bin/bazel"
           chmod +x "${GITHUB_WORKSPACE}/bin/bazel"
 
-      - name: Build Docker images
+      - name: Publish docker image
         run: |
-          "${GITHUB_WORKSPACE}/bin/bazel" run -c opt //:talking_containers_image -- --norun
-
-      - name: Deploy images to Dockerhub
-        run: |
-          "${GITHUB_WORKSPACE}/bin/bazel" run -c opt //:push_image
+          bash docker/publish_docker_image.sh

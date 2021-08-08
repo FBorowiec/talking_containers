@@ -37,5 +37,17 @@ container_push(
     image = "talking_containers_image",
     registry = "index.docker.io",
     repository = "framaxwlad/talking_container",
-    tag = "latest",
+    tag = "$(image_tag)",
+)
+
+filegroup(
+    name = "tag",
+    srcs = ["version"]
+)
+
+sh_binary(
+    name = "publish_docker_image",
+    srcs = ["docker/publish_docker_image.sh"],
+    data = [":tag"],
+    args = ["$(location :tag)"]
 )
