@@ -7,3 +7,9 @@ py_library(
     srcs = glob(["*.py"]),
     deps = ["//config:config_handler"],
 )
+
+py_library(
+    name = "some_other_lib",
+    srcs = glob(["*.py"]),
+    deps = ["//config:config_handler"],
+)
